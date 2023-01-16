@@ -7,7 +7,7 @@ type Props = {
     socials:Social[];
 }
 
-function Header() {
+function Header({socials}:Props) {
   return (
     <header className='sticky top-0 p-5 flex items-start justify-between mx-w-7xl mx-auto z-20
     xl:items-center '>
@@ -27,14 +27,16 @@ function Header() {
         }}
         className='flex flex-row items-center'>
             {/*Social Icons*/}
+            {socials.map((socials)=>(
+                 <SocialIcon
+                 key={socials._id}
+                 url={socials.url}
+                 bgColor='transparent'
+                 fgColor='gray'
+                 />
+            ))}
+           
             
-             <SocialIcon
-             url="https://www.youtube.com"
-             bgColor='transparent'
-             fgColor='gray'
-             />
-            
-   
         </motion.div>
 
         <Link href="#contact">

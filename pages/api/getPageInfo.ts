@@ -3,7 +3,7 @@ import { groq } from "next-sanity";
 import { sanityClient } from "../../sanity";
 import { PageInfo } from "../../typings";
 
-const query = groq`
+const query = groq `
     *[_type =="pageInfo"][0]
 `;
 type Data={

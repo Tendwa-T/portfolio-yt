@@ -23,7 +23,7 @@ type Props = {
   socials: Social[];
 
 }
-export default function Home() {
+export default function Home({pageInfo,experiences,skills,projects,socials}:Props) {
   return (
     <div className='bg-[rgb(36,36,36)] text-white h-screen snap-y snap-mandatory overflow-y-scroll overflow-x-hidden z-0 scrollbar scrollbar-track-gray-400/20
     scrollbar-thumb-[#f7ab04]/80'>
@@ -31,7 +31,8 @@ export default function Home() {
         <title>Tendwa's Portfolio</title>
       </Head>
     
-        <Header/>
+        <Header socials={socials}/>
+      
 
       {/*Hero */}
       <section id='hero' className='snap-start'>
@@ -78,12 +79,12 @@ export default function Home() {
 };
 
 
-/* export const getStaticProps: GetStaticProps<Props> =async()=> {
-  const pageInfo: PageInfo = await fetchPageInfo();
-  const experiences: Experiences[] = await fetchExperience();
-  const skills: Skill[] = await fetchSkills();
-  const socials: Social[] = await fetchSocials();
-  const projects: Project[] = await fetchProjects();
+export async function getStaticProps() {
+  const pageInfo: PageInfo = await fetchPageInfo()
+  const experiences: Experiences[] = await fetchExperience()
+  const skills: Skill[] = await fetchSkills()
+  const socials: Social[] = await fetchSocials()
+  const projects: Project[] = await fetchProjects()
 
   return {
     props: {
@@ -93,5 +94,6 @@ export default function Home() {
       projects,
       socials,
     },
+    revalidate: 10,
   };
-}; */
+};
