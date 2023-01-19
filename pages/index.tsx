@@ -36,7 +36,7 @@ export default function Home({pageInfo,experiences,skills,projects,socials}:Prop
 
       {/*Hero */}
       <section id='hero' className='snap-start'>
-        <Hero/>
+        <Hero pageInfo={pageInfo}/>
       </section>
 
       {/*About*/}

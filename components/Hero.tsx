@@ -1,14 +1,17 @@
 import Link from 'next/link';
 import React from 'react'
 import { Cursor, useTypewriter } from 'react-simple-typewriter'
+import { PageInfo } from '../typings';
 import BackgroundCircles from './BackgroundCircles';
 
-type Props = {}
+type Props = {
+    pageInfo: PageInfo;
+}
 
-function Hero({}: Props) {
+function Hero({pageInfo}: Props) {
     const [text, count] = useTypewriter({
         words:[
-            "Hi, I am Tendwa",
+            `Hi, I am ${pageInfo?.name}`,
             "How can I be of assistance to you?",
         ],
         loop:true,
